@@ -28,9 +28,24 @@ public class User implements UserDetails {
     private String name;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private UserRole role;
     private Boolean locked;
     private Boolean enabled;
+
+    public User(String name,
+                String email,
+                String password,
+                UserRole role,
+                Boolean locked,
+                Boolean enabled) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.locked = locked;
+        this.enabled = enabled;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
